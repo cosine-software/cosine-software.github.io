@@ -66,13 +66,6 @@
       margin-bottom: 40px;
     }
 
-    .in-touch {
-      background-color: #ddd;
-      padding-bottom: 40px;
-      padding-top: 40px;
-      margin-top: 0;
-      border-top: 1px solid #ccc;
-    }
 
     .footer {
       background: #333;
@@ -94,6 +87,18 @@
       opacity: 0.1;
       background-color: black;
     }
+
+    .quote {
+      font-size: 28px;
+      padding: 24px;
+      background: #7a4a7a;
+      color: whitesmoke;
+      border-radius: 4px;
+      margin: 12px;
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 
@@ -102,7 +107,7 @@
     <div class="jumbotron">
       <canvas id="canvas" width="600" height="200" style="max-width: 100%;"></canvas>
       <canvas id="buffer" width="600" height="200" style="display:none"></canvas>
-      <h1 style="margin-top: 40px; font-weight: 100;">cosine software</h1>
+      <h1 style="margin-top: 40px; font-weight: 100;">cosine.software</h1>
     </div>
 
     <div class="row">
@@ -178,7 +183,7 @@
       </div>
     </div>
 
-    <div style="margin-top: 82px;">
+    <div style="margin-top: 82px; margin-bottom: 82px;">
       <h2>Technology</h2>
       <p style="margin-bottom: 24px;">We build solutions using the best of the latest technologies.</p>
       <div class="row">
@@ -210,7 +215,15 @@
       </div>
 
     </div>
+
+    <div style="padding-bottom: 40px;">
+      <div class="quote">
+        <strong>"Cosine saved the project. They're great to deal with, very competent and fast."</strong> -- Bjorn.
+      </div>
+    </div>
   </div>
+
+
 
   <div style="position: relative; border-top: 1px solid #ccc;">
     <div class="map" id="map"></div>
@@ -221,8 +234,8 @@
         <form action="http://formspree.io/richard.astbury@gmail.com" method="POST" class="form-stacked form-light">
           <div class="form-group">
             <input type="text" name="email" class="form-control form-control-lg padded" placeholder="Email Address">
-            <textarea type="text" name="content" class="form-control form-control-lg padded" rows="5" style="resize:none"
-              placeholder="Please leave a short message"></textarea>
+            <textarea type="text" name="content" class="form-control form-control-lg padded" rows="5"
+              style="resize:none" placeholder="Please leave a short message"></textarea>
             <input type="submit" class="btn btn-primary btn-lg" value="Hello World">
           </div>
         </form>
