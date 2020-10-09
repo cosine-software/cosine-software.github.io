@@ -48,6 +48,28 @@
     #canvas {
       filter: drop-shadow(0px 20px 8px rgba(0,0,0,0.3));
     }
+
+    .content {
+      padding: 24px;
+    }
+
+    .logo {
+      text-align: center;
+    }
+
+    .logo-title {
+      margin-top: 12px;
+      margin-bottom: 40px;
+    }
+
+    .footer {
+      background: #333;
+      color: whitesmoke;
+      font-size: 18px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      margin-top: 40px;
+    }
   </style>
 </head>
 
@@ -56,7 +78,7 @@
     <div class="jumbotron">
       <canvas id="canvas" width="600" height="200" style="max-width: 100%;"></canvas>
       <canvas id="buffer" width="600" height="200" style="display:none"></canvas>
-      <h1 style="margin-top: 40px; font-weight: 100;">cosine software consultancy</h1>
+      <h1 style="margin-top: 40px; font-weight: 100;">cosine software</h1>
     </div>
 
     <div class="row">
@@ -102,18 +124,36 @@
 
       </div>
     </div>
-    <!--
-    <div>
-      <ul>
-        <li>Full stack development</li>
-        <li>Hyperscale</li>
-        <li>Cloud native</li>
-        <li>Cloud native</li>
-      </ul>
+
+    <div style="margin-top: 46px;">
+      <h2>Technology</h2>
+      <p style="margin-bottom: 24px;">We build solutions using the best of the latest technologies.</p>
+      <div class="row">
+        <div class="col logo">
+          <div><img src="images/orleans.png" width="128" height="128" /></div>
+          <div class="logo-title">Microsoft Orleans</div>
+        </div>
+        <div class="col logo">
+          <div><img src="images/node.svg" width="128" height="128" /></div>
+          <div class="logo-title">Node.js</div>
+        </div>
+        <div class="col logo">
+          <div><img src="images/react.svg" width="128" height="128" /></div>
+          <div class="logo-title">React.js</div>
+        </div>
+        <div class="col logo">
+          <div><img src="images/typescript.svg" width="128" height="128" /></div>
+          <div class="logo-title">TypeScript</div>
+        </div>
+        <div class="col logo">
+          <div><img src="images/netcore.svg" width="128" height="128" /></div>
+          <div class="logo-title">.net core</div>
+        </div>
+
+      </div>
 
     </div>
 
--->
     <div style="margin-top: 36px;">
       <h2>Say Hello</h2>
       <form action="http://formspree.io/richard.astbury@gmail.com" method="POST" class="form-stacked form-light">
@@ -127,6 +167,12 @@
     </div>
 
 
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      Copyright 2020 - Cosine Software Ltd
+    </div>
   </div>
 
 
