@@ -9,6 +9,8 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="//cosine-software.github.io/cosine-logo/index.js"></script>
   <title>Cosine Software Ltd</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/css/ol.css"
+    type="text/css">
   <style>
     body {
       color: #555;
@@ -68,7 +70,7 @@
       background-color: #ddd;
       padding-bottom: 40px;
       padding-top: 40px;
-      margin-top:0;
+      margin-top: 0;
       border-top: 1px solid #ccc;
     }
 
@@ -82,7 +84,15 @@
 
     .icon {
       margin: 24px;
-      filter: drop-shadow(0px 20px 7px rgba(0, 0, 0, 0.3));
+      filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.2));
+    }
+
+    .map {
+
+      height: 520px;
+      width: 100%;
+      opacity: 0.1;
+      background-color: black;
     }
   </style>
 </head>
@@ -202,20 +212,22 @@
     </div>
   </div>
 
-  <div class="in-touch">
-    <div class="container">
-      <h2>Say Hello</h2>
-      <form action="http://formspree.io/richard.astbury@gmail.com" method="POST" class="form-stacked form-light">
-        <div class="form-group">
-          <input type="text" name="email" class="form-control form-control-lg padded" placeholder="Email Address">
-          <textarea type="text" name="content" class="form-control form-control-lg padded" rows="5"
-            placeholder="Please leave a short message"></textarea>
-          <input type="submit" class="btn btn-primary btn-lg" value="Say Hello">
-        </div>
-      </form>
+  <div style="position: relative; border-top: 1px solid #ccc;">
+    <div class="map" id="map"></div>
+    <div style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
+      <div class="container" style="padding-top:40px;">
+        <h2>We're based in the UK, but have a global reach</h2>
+        <h2>We'd love to say Hello!</h2>
+        <form action="http://formspree.io/richard.astbury@gmail.com" method="POST" class="form-stacked form-light">
+          <div class="form-group">
+            <input type="text" name="email" class="form-control form-control-lg padded" placeholder="Email Address">
+            <textarea type="text" name="content" class="form-control form-control-lg padded" rows="5" style="resize:none"
+              placeholder="Please leave a short message"></textarea>
+            <input type="submit" class="btn btn-primary btn-lg" value="Hello World">
+          </div>
+        </form>
+      </div>
     </div>
-
-
   </div>
 
   <div class="footer">
@@ -225,8 +237,29 @@
   </div>
 
 
-  <script>
+  <script type="text/javascript">
     initLogo()
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
+  <script type="text/javascript">
+    var map = new ol.Map({
+      target: 'map',
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.Stamen({ layer: 'toner-background' })
+        })
+      ],
+      view: new ol.View({
+        center: ol.proj.fromLonLat([1.3126, 52.0955]),
+        zoom: 7
+      }),
+      interactions: [],
+      controls: []
+
+    });
+
+    map.getView().animate({ zoom: 1, center: [0, 0], duration: 100000 });
+
   </script>
 </body>
 
