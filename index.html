@@ -2,151 +2,143 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <script src="//cosine-software.github.io/cosine-logo/index.js"></script>
-  <title>Cosine Software Ltd</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/css/ol.css"
-    type="text/css">
-  <style>
-    body {
-      color: #555;
-      font-size: 22px;
-      background: whitesmoke;
-    }
-
-    .jumbotron {
-      text-align: center;
-      background: whitesmoke;
-      margin-top: 20vh;
-      margin-bottom: 20vh;
-    }
-
-    .padded {
-      margin-bottom: 12px;
-    }
-
-    .col-sm {
-      text-align: center;
-      color: #666;
-      margin: 12px;
-      padding: 24px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.2);
-    }
-
-    .lead {
-      font-size: 24px;
-      margin-top: 32px;
-    }
-
-    h2 {
-      font-weight: bold;
-      padding-bottom: 24px;
-    }
-
-    #canvas {
-      filter: drop-shadow(0px 20px 7px rgba(0, 0, 0, 0.3));
-    }
-
-    .content {
-      padding: 24px;
-    }
-
-    .logo {
-      text-align: center;
-    }
-
-    .logo-title {
-      margin-top: 12px;
-      margin-bottom: 40px;
-    }
-
-
-    .footer {
-      background: #333;
-      color: whitesmoke;
-      font-size: 18px;
-      padding-top: 40px;
-      padding-bottom: 40px;
-    }
-
-    .icon {
-      margin: 24px;
-      filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.2));
-    }
-
-    .map {
-
-      height: 520px;
-      width: 100%;
-      opacity: 0.1;
-      background-color: black;
-    }
-
-    .quote {
-      font-size: 28px;
-      padding: 24px;
-      background: #7a4a7a;
-      color: whitesmoke;
-      border-radius: 4px;
-      margin: 12px;
-      padding: 24px;
-      border-radius: 8px;
-      box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.2);
-    }
-  </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="//cosine-software.github.io/cosine-logo/index.js"></script>
+    <title>Cosine Software Ltd</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/css/ol.css" type="text/css">
+    <style>
+        body {
+            color: #555;
+            font-size: 22px;
+            background: whitesmoke;
+        }
+        
+        .jumbotron {
+            text-align: center;
+            background: whitesmoke;
+            margin-top: 20vh;
+            margin-bottom: 20vh;
+            font-family: Roboto;
+        }
+        
+        .padded {
+            margin-bottom: 12px;
+        }
+        
+        .col-sm {
+            text-align: center;
+            color: #666;
+            margin: 12px;
+            padding: 24px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .lead {
+            font-size: 24px;
+            margin-top: 32px;
+        }
+        
+        h2 {
+            font-weight: bold;
+            padding-bottom: 24px;
+        }
+        
+        #canvas {
+            filter: drop-shadow(0px 20px 7px rgba(0, 0, 0, 0.3));
+        }
+        
+        .content {
+            padding: 24px;
+        }
+        
+        .logo {
+            text-align: center;
+        }
+        
+        .logo-title {
+            margin-top: 12px;
+            margin-bottom: 40px;
+        }
+        
+        .footer {
+            background: #333;
+            color: whitesmoke;
+            font-size: 18px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        
+        .icon {
+            margin: 24px;
+            filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.2));
+        }
+        
+        .map {
+            height: 520px;
+            width: 100%;
+            opacity: 0.1;
+            background-color: black;
+        }
+        
+        .quote {
+            font-size: 28px;
+            padding: 24px;
+            background: #7a4a7a;
+            color: whitesmoke;
+            border-radius: 4px;
+            margin: 12px;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="jumbotron">
-      <canvas id="canvas" width="600" height="200" style="max-width: 100%;"></canvas>
-      <canvas id="buffer" width="600" height="200" style="display:none"></canvas>
-      <h1 style="margin-top: 40px; font-weight: 100;">cosine.software</h1>
-    </div>
+    <div class="container">
+        <div class="jumbotron">
+            <canvas id="canvas" width="600" height="200" style="max-width: 100%;"></canvas>
+            <canvas id="buffer" width="600" height="200" style="display:none"></canvas>
+            <h1 style="margin-top: 40px; font-weight: 100;">cosine.software</h1>
+        </div>
 
-    <div class="row">
-      <div class="col-sm">
-        <svg class="icon" width="64" height="64" viewBox="0 0 16 16" class="bi bi-lightning" fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg">
+        <div class="row">
+            <div class="col-sm">
+                <svg class="icon" width="64" height="64" viewBox="0 0 16 16" class="bi bi-lightning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
             d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z" />
         </svg>
 
-        <h2>We build hyper-scale systems in .NET</h2>
-        <p>
-          We're the experts in using <strong>Microsoft Orleans</strong>
-          to build cloud native, high-scale, realtime systems in <strong>.NET Core.</strong>
-        </p>
-        <p>
+                <h2>We build hyper-scale systems in .NET</h2>
+                <p>
+                    We're the experts in using <strong>Microsoft Orleans</strong> to build cloud native, high-scale, realtime systems in <strong>.NET Core.</strong>
+                </p>
+                <p>
 
-        </p>
-      </div>
-      <div class="col-sm">
-        <svg class="icon" width="64" height="64" viewBox="0 0 16 16" class="bi bi-bar-chart" fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg">
+                </p>
+            </div>
+            <div class="col-sm">
+                <svg class="icon" width="64" height="64" viewBox="0 0 16 16" class="bi bi-bar-chart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
             d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z" />
         </svg>
 
-        <h2>We accelerate your development</h2>
+                <h2>We accelerate your development</h2>
 
-        <p>
-          We help teams to select the right <strong>architecture</strong> and <strong>technology</strong> choices.
-          We provide <strong>guidance</strong>, <strong>code reviews</strong> and <strong>mentoring</strong> to help to develop your skills to
-          reach your full potential.
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm">
+                <p>
+                    We help teams to select the right <strong>architecture</strong> and <strong>technology</strong> choices. We provide <strong>guidance</strong>, <strong>code reviews</strong> and <strong>mentoring</strong> to help you reach your full
+                    potential.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
 
-        <svg class="icon" width="64" height="64" viewBox="0 0 256 249" xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="xMinYMin meet">
+                <svg class="icon" width="64" height="64" viewBox="0 0 256 249" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet">
           <g fill="currentColor">
             <path
               d="M127.505 0C57.095 0 0 57.085 0 127.505c0 56.336 36.534 104.13 87.196 120.99 6.372 1.18 8.712-2.766 8.712-6.134 0-3.04-.119-13.085-.173-23.739-35.473 7.713-42.958-15.044-42.958-15.044-5.8-14.738-14.157-18.656-14.157-18.656-11.568-7.914.872-7.752.872-7.752 12.804.9 19.546 13.14 19.546 13.14 11.372 19.493 29.828 13.857 37.104 10.6 1.144-8.242 4.449-13.866 8.095-17.05-28.32-3.225-58.092-14.158-58.092-63.014 0-13.92 4.981-25.295 13.138-34.224-1.324-3.212-5.688-16.18 1.235-33.743 0 0 10.707-3.427 35.073 13.07 10.17-2.826 21.078-4.242 31.914-4.29 10.836.048 21.752 1.464 31.942 4.29 24.337-16.497 35.029-13.07 35.029-13.07 6.94 17.563 2.574 30.531 1.25 33.743 8.175 8.929 13.122 20.303 13.122 34.224 0 48.972-29.828 59.756-58.22 62.912 4.573 3.957 8.648 11.717 8.648 23.612 0 17.06-.148 30.791-.148 34.991 0 3.393 2.295 7.369 8.759 6.117 50.634-16.879 87.122-64.656 87.122-120.973C255.009 57.085 197.922 0 127.505 0" />
@@ -155,120 +147,122 @@
           </g>
         </svg>
 
-        <h2>We help you to open source</h2>
-        <p>
-          We're strong believers in open source code. We can help you open source your project,
-          <strong>build a community</strong> and tap in to the wider skills and experience around the world.
-        </p>
-        <p>
+                <h2>We help you to open source</h2>
+                <p>
+                    We're strong believers in open source code. We can help you open source your project,
+                    <strong>build a community</strong> and tap in to the wider skills and experience around the world.
+                </p>
+                <p>
 
-        </p>
-      </div>
-      <div class="col-sm">
-        <svg class="icon" width="64" height="64" viewBox="0 0 16 16" class="bi bi-gem" fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg">
+                </p>
+            </div>
+            <div class="col-sm">
+                <svg class="icon" width="64" height="64" viewBox="0 0 16 16" class="bi bi-gem" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
             d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6l3-4zm11.386 3.785l-1.806-2.41-.776 2.413 2.582-.003zm-3.633.004l.961-2.989H4.186l.963 2.995 5.704-.006zM5.47 5.495l5.062-.005L8 13.366 5.47 5.495zm-1.371-.999l-.78-2.422-1.818 2.425 2.598-.003zM1.499 5.5l2.92-.003 2.193 6.82L1.5 5.5zm7.889 6.817l2.194-6.828 2.929-.003-5.123 6.831z" />
         </svg>
 
-        <h2>We build beautiful software</h2>
+                <h2>We build beautiful software</h2>
 
-        <p>
-          We take pride in building software to a high level of quality, across a wide variety of
-          markets. <strong>Talk to us about your next software idea</strong>.
-        </p>
+                <p>
+                    We take pride in building software to a high level of quality, across a wide variety of markets. <strong>Talk to us about your next software idea</strong>.
+                </p>
 
-      </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 82px; margin-bottom: 82px;">
+            <h2>Technology</h2>
+            <p style="margin-bottom: 24px;">We build solutions using the best of the latest technologies.</p>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 logo">
+                    <div><img src="images/azure.svg" width="128" height="128" /></div>
+                    <div class="logo-title">Microsoft Azure</div>
+                </div>
+                <div class="col-md-4 col-sm-6 logo">
+                    <div><img src="images/orleans.png" width="128" height="128" /></div>
+                    <div class="logo-title">Microsoft Orleans</div>
+                </div>
+                <div class="col-md-4 col-sm-6 logo">
+                    <div><img src="images/node.svg" width="128" height="128" /></div>
+                    <div class="logo-title">Node.js</div>
+                </div>
+                <div class="col-md-4 col-sm-6 logo">
+                    <div><img src="images/react.svg" width="128" height="128" /></div>
+                    <div class="logo-title">React.js</div>
+                </div>
+                <div class="col-md-4 col-sm-6 logo">
+                    <div><img src="images/typescript.svg" width="128" height="128" /></div>
+                    <div class="logo-title">TypeScript</div>
+                </div>
+                <div class="col-md-4 col-sm-6 logo">
+                    <div><img src="images/netcore.svg" width="128" height="128" /></div>
+                    <div class="logo-title">.NET Core</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="padding-bottom: 40px;">
+            <div class="quote">
+                <strong>"Cosine saved the project. They're great to deal with, very competent and fast."</strong> -- Bjorn.
+            </div>
+        </div>
     </div>
 
-    <div style="margin-top: 82px; margin-bottom: 82px;">
-      <h2>Technology</h2>
-      <p style="margin-bottom: 24px;">We build solutions using the best of the latest technologies.</p>
-      <div class="row">
-        <div class="col-md-4 col-sm-6 logo">
-          <div><img src="images/azure.svg" width="128" height="128" /></div>
-          <div class="logo-title">Microsoft Azure</div>
+    <div style="position: relative; border-top: 1px solid #ccc;">
+        <div class="map" id="map"></div>
+        <div style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
+            <div class="container" style="padding-top:40px;">
+                <h2>We're based in Ipswich, Suffolk, UK, but have a global reach</h2>
+                <h2>We'd love to say Hello!</h2>
+                <form action="http://formspree.io/richard.astbury@gmail.com" method="POST" class="form-stacked form-light">
+                    <div class="form-group">
+                        <input type="text" name="email" class="form-control form-control-lg padded" placeholder="Email Address">
+                        <textarea type="text" name="content" class="form-control form-control-lg padded" rows="5" style="resize:none" placeholder="Please leave a short message"></textarea>
+                        <input type="submit" class="btn btn-primary btn-lg" value="Hello World">
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="col-md-4 col-sm-6 logo">
-          <div><img src="images/orleans.png" width="128" height="128" /></div>
-          <div class="logo-title">Microsoft Orleans</div>
-        </div>
-        <div class="col-md-4 col-sm-6 logo">
-          <div><img src="images/node.svg" width="128" height="128" /></div>
-          <div class="logo-title">Node.js</div>
-        </div>
-        <div class="col-md-4 col-sm-6 logo">
-          <div><img src="images/react.svg" width="128" height="128" /></div>
-          <div class="logo-title">React.js</div>
-        </div>
-        <div class="col-md-4 col-sm-6 logo">
-          <div><img src="images/typescript.svg" width="128" height="128" /></div>
-          <div class="logo-title">TypeScript</div>
-        </div>
-        <div class="col-md-4 col-sm-6 logo">
-          <div><img src="images/netcore.svg" width="128" height="128" /></div>
-          <div class="logo-title">.NET Core</div>
-        </div>
-      </div>
-
     </div>
 
-    <div style="padding-bottom: 40px;">
-      <div class="quote">
-        <strong>"Cosine saved the project. They're great to deal with, very competent and fast."</strong> -- Bjorn.
-      </div>
+    <div class="footer">
+        <div class="container">
+            Copyright 2020 - Cosine Software Ltd
+        </div>
     </div>
-  </div>
-
-  <div style="position: relative; border-top: 1px solid #ccc;">
-    <div class="map" id="map"></div>
-    <div style="position: absolute; top: 0; left: 0; bottom: 0; right: 0;">
-      <div class="container" style="padding-top:40px;">
-        <h2>We're based in Ipswich, Suffolk, UK, but have a global reach</h2>
-        <h2>We'd love to say Hello!</h2>
-        <form action="http://formspree.io/richard.astbury@gmail.com" method="POST" class="form-stacked form-light">
-          <div class="form-group">
-            <input type="text" name="email" class="form-control form-control-lg padded" placeholder="Email Address">
-            <textarea type="text" name="content" class="form-control form-control-lg padded" rows="5"
-              style="resize:none" placeholder="Please leave a short message"></textarea>
-            <input type="submit" class="btn btn-primary btn-lg" value="Hello World">
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer">
-    <div class="container">
-      Copyright 2020 - Cosine Software Ltd
-    </div>
-  </div>
 
 
-  <script type="text/javascript">
-    initLogo()
-  </script>
-  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
-  <script type="text/javascript">
-    var map = new ol.Map({
-      target: 'map',
-      layers: [
-        new ol.layer.Tile({
-          source: new ol.source.Stamen({ layer: 'toner-background' })
-        })
-      ],
-      view: new ol.View({
-        center: ol.proj.fromLonLat([1.3126, 52.0955]),
-        zoom: 7
-      }),
-      interactions: [],
-      controls: []
+    <script type="text/javascript">
+        initLogo()
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
+    <script type="text/javascript">
+        var map = new ol.Map({
+            target: 'map',
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.Stamen({
+                        layer: 'toner-background'
+                    })
+                })
+            ],
+            view: new ol.View({
+                center: ol.proj.fromLonLat([1.3126, 52.0955]),
+                zoom: 7
+            }),
+            interactions: [],
+            controls: []
 
-    });
+        });
 
-    map.getView().animate({ zoom: 1, center: [0, 0], duration: 100000 });
-
-  </script>
+        map.getView().animate({
+            zoom: 1,
+            center: [0, 0],
+            duration: 100000
+        });
+    </script>
 </body>
 
 </html>
