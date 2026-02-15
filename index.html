@@ -1,244 +1,826 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link id="favicon" rel="icon" type="image/png">
-    <link href="//fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- SEO Meta Tags -->
+    <title>Cosine Software | Cloud-Native .NET Consulting, Development & Mentoring</title>
+    <meta name="description" content="Cosine Software specialises in building hyper-scale, cloud-native systems with .NET and OpenAI. Consulting, development and mentoring based in Ipswich, UK with global reach.">
+    <meta name="keywords" content="cloud-native, .NET, OpenAI, AI, software consulting, hyper-scale systems, Azure, TypeScript, React, open source, Ipswich, UK">
+    <meta name="author" content="Richard Astbury">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cosine-software.github.io/">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cosine Software | Cloud-Native .NET Consulting & Development">
+    <meta property="og:description" content="Experts in building hyper-scale, cloud-native systems with .NET and OpenAI. Consulting, development and mentoring.">
+    <meta property="og:url" content="https://cosine-software.github.io/">
+    <meta property="og:site_name" content="Cosine Software">
+    <meta property="og:locale" content="en_GB">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Cosine Software | Cloud-Native .NET Consulting & Development">
+    <meta name="twitter:description" content="Experts in building hyper-scale, cloud-native systems with .NET and OpenAI.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Cosine Software",
+        "description": "Cosine Software specialises in building hyper-scale, cloud-native systems with .NET and OpenAI. Offering consulting, development and mentoring services.",
+        "url": "https://cosine-software.github.io/",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ipswich",
+            "addressRegion": "Suffolk",
+            "addressCountry": "GB"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Richard Astbury"
+        },
+        "knowsAbout": [".NET", "OpenAI", "Azure", "Cloud-Native Architecture", "TypeScript", "React", "Node.js"],
+        "serviceType": ["Software Consulting", "Software Development", "Technical Mentoring", "Code Reviews", "Open Source Consulting"]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <script src="/cosine-logo/index.js"></script>
-    <title>Cosine Software</title>
-    <meta name="description" content="Experts in building hyperscale solution for the cloud">
+
     <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --color-primary: #6c3fa0;
+            --color-primary-light: #8b5fcf;
+            --color-accent: #47b2e4;
+            --color-accent-dark: #2d8dbf;
+            --color-dark: #1a1a2e;
+            --color-dark-alt: #16213e;
+            --color-text: #4a4a5a;
+            --color-text-light: #6e6e80;
+            --color-bg: #f8f9fc;
+            --color-card: #ffffff;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --radius: 16px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            color: #555;
-            font-size: 22px;
-            background: whitesmoke;
+            font-family: var(--font-main);
+            color: var(--color-text);
+            font-size: 17px;
+            line-height: 1.7;
+            background: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
         }
-        
-        .jumbotron {
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 18px 0;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-sm);
+            padding: 12px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            transition: var(--transition);
+        }
+
+        nav.scrolled .nav-brand {
+            color: var(--color-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        nav.scrolled .nav-links a {
+            color: var(--color-text);
+        }
+
+        nav.scrolled .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            background: whitesmoke;
-            margin-top: 20vh;
-            margin-bottom: 20vh;
-            font-family: Roboto;
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-alt) 40%, #0f3460 100%);
+            position: relative;
+            overflow: hidden;
         }
-        
-        .padded {
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(108, 63, 160, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 50%, rgba(71, 178, 228, 0.1) 0%, transparent 50%);
+            animation: heroShift 20s ease-in-out infinite;
+        }
+
+        @keyframes heroShift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(3%, -3%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 120px 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            color: white;
+            margin-top: 32px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero h1 strong {
+            font-weight: 700;
+        }
+
+        .hero .tagline {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.15rem;
+            margin-top: 16px;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .hero .cta-group {
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            font-family: var(--font-main);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: white;
+            box-shadow: 0 4px 20px rgba(108, 63, 160, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108, 63, 160, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        #canvas {
+            filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.4));
+        }
+
+        /* ── Sections ── */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 64px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-primary);
             margin-bottom: 12px;
         }
-        
-        .col-sm {
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 700;
+            color: var(--color-dark);
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            padding-bottom: 0;
+        }
+
+        .section-header p {
+            color: var(--color-text-light);
+            margin-top: 16px;
+            font-size: 1.05rem;
+        }
+
+        /* ── Service Cards ── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .service-card {
+            background: var(--color-card);
+            border-radius: var(--radius);
+            padding: 40px 32px;
             text-align: center;
-            color: #666;
-            margin: 12px;
-            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card .icon-wrap {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 24px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(108, 63, 160, 0.08), rgba(71, 178, 228, 0.08));
+        }
+
+        .service-card .icon-wrap svg {
+            width: 32px;
+            height: 32px;
+            color: var(--color-primary);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-dark);
+            margin-bottom: 14px;
+            letter-spacing: -0.01em;
+        }
+
+        .service-card p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ── Tech Section ── */
+        .tech-section {
             background: white;
-            border-radius: 8px;
-            box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.2);
         }
-        
-        .lead {
-            font-size: 24px;
-            margin-top: 32px;
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 24px;
         }
-        
-        h2 {
-            font-weight: bold;
-            padding-bottom: 24px;
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            padding: 32px 16px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            border: 1px solid transparent;
         }
-        
-        #canvas {
-            filter: drop-shadow(0px 20px 7px rgba(0, 0, 0, 0.3));
+
+        .tech-item:hover {
+            background: var(--color-bg);
+            border-color: rgba(0, 0, 0, 0.06);
+            transform: translateY(-4px);
         }
-        
-        .content {
-            padding: 24px;
+
+        .tech-item img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            transition: var(--transition);
         }
-        
-        .logo {
+
+        .tech-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .tech-item span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-dark);
+        }
+
+        /* ── Testimonial ── */
+        .testimonial-section {
+            background: linear-gradient(135deg, var(--color-dark) 0%, #0f3460 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 80% 50%, rgba(108, 63, 160, 0.2) 0%, transparent 60%);
+        }
+
+        .testimonial-card {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
             text-align: center;
         }
-        
-        .logo-title {
-            margin-top: 12px;
-            margin-bottom: 40px;
+
+        .testimonial-card .quote-mark {
+            font-size: 5rem;
+            line-height: 1;
+            color: var(--color-primary-light);
+            opacity: 0.5;
+            font-family: Georgia, serif;
         }
-        
-        .footer {
-            background: #222;
-            color: whitesmoke;
-            font-size: 18px;
-            padding-top: 40px;
-            padding-bottom: 40px;
+
+        .testimonial-card blockquote {
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: white;
+            font-weight: 300;
+            line-height: 1.5;
+            margin-top: -20px;
         }
-        
-        .map-section {
+
+        .testimonial-card cite {
+            display: block;
+            margin-top: 24px;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* ── Contact Section ── */
+        .contact-section {
             color: #ddd;
-            background-color: #192a3c;
+            background-color: var(--color-dark-alt);
             background-image: url(images/map-image.png);
             background-repeat: no-repeat;
             background-position: center;
+            background-size: cover;
+            position: relative;
         }
-        
-        .icon {
-            margin: 24px;
-            color: #47b2e4;
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(22, 33, 62, 0.88);
         }
-        
-        .quote {
-            font-size: 28px;
-            padding: 24px;
-            background: #7a4a7a;
-            color: whitesmoke;
-            border-radius: 4px;
-            margin: 12px;
-            padding: 24px;
-            border-radius: 8px;
-            box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.2);
+
+        .contact-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-inner h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            padding-bottom: 0;
+            margin-bottom: 8px;
+        }
+
+        .contact-inner .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+        }
+
+        .contact-inner form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-inner input,
+        .contact-inner textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            color: white;
+            font-family: var(--font-main);
+            font-size: 1rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .contact-inner input::placeholder,
+        .contact-inner textarea::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .contact-inner input:focus,
+        .contact-inner textarea:focus {
+            border-color: var(--color-accent);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(71, 178, 228, 0.15);
+        }
+
+        .contact-inner textarea {
+            resize: none;
+            min-height: 140px;
+        }
+
+        .contact-inner .btn-primary {
+            width: 100%;
+            justify-content: center;
+            padding: 16px;
+            font-size: 1rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: #0d0d1a;
+            color: rgba(255, 255, 255, 0.4);
+            text-align: center;
+            padding: 32px 0;
+            font-size: 0.88rem;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        /* ── Scroll reveal animation ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible,
+        .no-js .reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 72px 0;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="jumbotron">
+
+    <!-- Navigation -->
+    <nav id="navbar" aria-label="Main navigation">
+        <div class="container">
+            <a href="#" class="nav-brand">cosine software</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="hero">
+        <div class="hero-content">
             <canvas id="canvas" width="600" height="200" style="max-width: 100%;"></canvas>
             <canvas id="buffer" width="600" height="200" style="display:none"></canvas>
-            <h1 style="margin-top: 40px; font-weight: 100;">cosine software</h1>
-            <p>consulting ~ development ~ mentoring</p>
-        </div>
-
-        <div class="row">
-            <div class="col-sm">
-                <svg class="icon" width="64" height="64" viewBox="0 0 16 16" class="bi bi-lightning" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z" />
-        </svg>
-
-                <h2>We build hyper-scale systems in .NET</h2>
-                <p>
-                    We're the experts in using <strong>Microsoft Orleans</strong> to build cloud native, high-scale, realtime systems in <strong>.NET Core.</strong>
-                </p>
-                <p>
-
-                </p>
-            </div>
-            <div class="col-sm">
-                <svg class="icon" width="64" height="64" viewBox="0 0 16 16" class="bi bi-bar-chart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z" />
-        </svg>
-
-                <h2>We accelerate your development</h2>
-
-                <p>
-                    We help teams to select the right <strong>architecture</strong> and <strong>technology</strong> choices. We provide <strong>guidance</strong>, <strong>code reviews</strong> and <strong>mentoring</strong> to help you reach your full
-                    potential.
+            <h1><strong>cosine</strong> software</h1>
+            <p class="tagline">consulting &middot; development &middot; mentoring</p>
+            <div class="cta-group">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="#services" class="btn btn-outline">Our Services</a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm">
+    </header>
 
-                <svg class="icon" width="64" height="64" viewBox="0 0 256 249" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet">
-          <g fill="currentColor">
-            <path
-              d="M127.505 0C57.095 0 0 57.085 0 127.505c0 56.336 36.534 104.13 87.196 120.99 6.372 1.18 8.712-2.766 8.712-6.134 0-3.04-.119-13.085-.173-23.739-35.473 7.713-42.958-15.044-42.958-15.044-5.8-14.738-14.157-18.656-14.157-18.656-11.568-7.914.872-7.752.872-7.752 12.804.9 19.546 13.14 19.546 13.14 11.372 19.493 29.828 13.857 37.104 10.6 1.144-8.242 4.449-13.866 8.095-17.05-28.32-3.225-58.092-14.158-58.092-63.014 0-13.92 4.981-25.295 13.138-34.224-1.324-3.212-5.688-16.18 1.235-33.743 0 0 10.707-3.427 35.073 13.07 10.17-2.826 21.078-4.242 31.914-4.29 10.836.048 21.752 1.464 31.942 4.29 24.337-16.497 35.029-13.07 35.029-13.07 6.94 17.563 2.574 30.531 1.25 33.743 8.175 8.929 13.122 20.303 13.122 34.224 0 48.972-29.828 59.756-58.22 62.912 4.573 3.957 8.648 11.717 8.648 23.612 0 17.06-.148 30.791-.148 34.991 0 3.393 2.295 7.369 8.759 6.117 50.634-16.879 87.122-64.656 87.122-120.973C255.009 57.085 197.922 0 127.505 0" />
-            <path
-              d="M47.755 181.634c-.28.633-1.278.823-2.185.389-.925-.416-1.445-1.28-1.145-1.916.275-.652 1.273-.834 2.196-.396.927.415 1.455 1.287 1.134 1.923M54.027 187.23c-.608.564-1.797.302-2.604-.589-.834-.889-.99-2.077-.373-2.65.627-.563 1.78-.3 2.616.59.834.899.996 2.08.36 2.65M58.33 194.39c-.782.543-2.06.034-2.849-1.1-.781-1.133-.781-2.493.017-3.038.792-.545 2.05-.055 2.85 1.07.78 1.153.78 2.513-.019 3.069M65.606 202.683c-.699.77-2.187.564-3.277-.488-1.114-1.028-1.425-2.487-.724-3.258.707-.772 2.204-.555 3.302.488 1.107 1.026 1.445 2.496.7 3.258M75.01 205.483c-.307.998-1.741 1.452-3.185 1.028-1.442-.437-2.386-1.607-2.095-2.616.3-1.005 1.74-1.478 3.195-1.024 1.44.435 2.386 1.596 2.086 2.612M85.714 206.67c.036 1.052-1.189 1.924-2.705 1.943-1.525.033-2.758-.818-2.774-1.852 0-1.062 1.197-1.926 2.721-1.951 1.516-.03 2.758.815 2.758 1.86M96.228 206.267c.182 1.026-.872 2.08-2.377 2.36-1.48.27-2.85-.363-3.039-1.38-.184-1.052.89-2.105 2.367-2.378 1.508-.262 2.857.355 3.049 1.398" />
-          </g>
-        </svg>
-
-                <h2>We help you to open source</h2>
-                <p>
-                    We're strong believers in open source code. We can help you open source your project,
-                    <strong>build a community</strong> and tap in to the wider skills and experience around the world.
-                </p>
-                <p>
-
-                </p>
-            </div>
-            <div class="col-sm">
-                <svg class="icon" width="64" height="64" viewBox="0 0 16 16" class="bi bi-gem" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6l3-4zm11.386 3.785l-1.806-2.41-.776 2.413 2.582-.003zm-3.633.004l.961-2.989H4.186l.963 2.995 5.704-.006zM5.47 5.495l5.062-.005L8 13.366 5.47 5.495zm-1.371-.999l-.78-2.422-1.818 2.425 2.598-.003zM1.499 5.5l2.92-.003 2.193 6.82L1.5 5.5zm7.889 6.817l2.194-6.828 2.929-.003-5.123 6.831z" />
-        </svg>
-
-                <h2>We build beautiful software</h2>
-
-                <p>
-                    We take pride in building software to a high level of quality, across a wide variety of markets. <strong>Talk to us about your next software idea</strong>.
-                </p>
-
-            </div>
-        </div>
-
-        <div style="margin-top: 82px; margin-bottom: 82px;">
-            <h2>Technology</h2>
-            <p style="margin-bottom: 24px;">We build solutions using the best of the latest technologies.</p>
-            <div class="row">
-                <div class="col-md-4 col-sm-6 logo">
-                    <div><img src="images/azure.svg" alt="Microsoft Azure Logo" width="128" height="128" /></div>
-                    <div class="logo-title">Microsoft Azure</div>
+    <!-- Services -->
+    <main>
+        <section id="services">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label">What We Do</span>
+                    <h2>Expert Software Consulting &amp; Development</h2>
+                    <p>We help organisations build high-performance, cloud-native systems that scale.</p>
                 </div>
-                <div class="col-md-4 col-sm-6 logo">
-                    <div><img src="images/orleans.png" alt="Microsoft Orleans Logo" width="128" height="128" /></div>
-                    <div class="logo-title">Microsoft Orleans</div>
-                </div>
-                <div class="col-md-4 col-sm-6 logo">
-                    <div><img src="images/node.svg" alt="Node.js Logo" width="128" height="128" /></div>
-                    <div class="logo-title">Node.js</div>
-                </div>
-                <div class="col-md-4 col-sm-6 logo">
-                    <div><img src="images/react.svg" alt="React Logo" width="128" height="128" /></div>
-                    <div class="logo-title">React.js</div>
-                </div>
-                <div class="col-md-4 col-sm-6 logo">
-                    <div><img src="images/typescript.svg" alt="Typescript Logo" width="128" height="128" /></div>
-                    <div class="logo-title">TypeScript</div>
-                </div>
-                <div class="col-md-4 col-sm-6 logo">
-                    <div><img src="images/netcore.svg" alt=".NET Core Logo" width="128" height="128" /></div>
-                    <div class="logo-title">.NET Core</div>
+                <div class="services-grid">
+                    <article class="service-card reveal">
+                        <div class="icon-wrap">
+                            <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z" />
+                            </svg>
+                        </div>
+                        <h3>Hyper-Scale .NET Systems</h3>
+                        <p>We're the experts in using <strong>OpenAI</strong> and <strong>.NET</strong> to build cloud-native, high-scale, AI-powered systems.</p>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="icon-wrap">
+                            <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z" />
+                            </svg>
+                        </div>
+                        <h3>Accelerate Your Development</h3>
+                        <p>We help teams select the right <strong>architecture</strong> and <strong>technology</strong> choices, providing <strong>guidance</strong>, <strong>code reviews</strong> and <strong>mentoring</strong>.</p>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="icon-wrap">
+                            <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                        </div>
+                        <h3>Open Source Strategy</h3>
+                        <p>We help you open source your project, <strong>build a community</strong> and tap into the wider skills and experience around the world.</p>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="icon-wrap">
+                            <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6l3-4zm11.386 3.785l-1.806-2.41-.776 2.413 2.582-.003zm-3.633.004l.961-2.989H4.186l.963 2.995 5.704-.006zM5.47 5.495l5.062-.005L8 13.366 5.47 5.495zm-1.371-.999l-.78-2.422-1.818 2.425 2.598-.003zM1.499 5.5l2.92-.003 2.193 6.82L1.5 5.5zm7.889 6.817l2.194-6.828 2.929-.003-5.123 6.831z" />
+                            </svg>
+                        </div>
+                        <h3>Beautiful Software</h3>
+                        <p>We take pride in building software to a high level of quality, across a wide variety of markets. <strong>Talk to us about your next idea</strong>.</p>
+                    </article>
                 </div>
             </div>
+        </section>
 
-        </div>
-
-        <div style="padding-bottom: 40px;">
-            <div class="quote">
-                <strong>"Cosine saved the project. They're great to deal with, very competent and fast."</strong> ~ Bjorn.
-            </div>
-        </div>
-    </div>
-
-    <div class="map-section">
-        <div class="container" style="padding-top:40px; padding-bottom: 40px;">
-            <h2>We're based in Ipswich, Suffolk, UK, but have a global reach</h2>
-            <h2>We'd love to say Hello!</h2>
-            <form action="https://formspree.io/f/mknpbgvv" method="POST" class="form-stacked form-light">
-                <div class="form-group">
-                    <input type="email" name="_replyto" class="form-control form-control-lg padded" placeholder="Email Address">
-                    <textarea type="text" name="message" class="form-control form-control-lg padded" rows="5" style="resize:none" placeholder="Please leave a short message"></textarea>
-                    <input type="submit" class="btn btn-primary btn-lg" value="Hello World">
+        <!-- Technology -->
+        <section id="technology" class="tech-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label">Our Stack</span>
+                    <h2>Built with the Best Technologies</h2>
+                    <p>We use industry-leading tools and frameworks to deliver robust, scalable solutions.</p>
                 </div>
-            </form>
-        </div>
+                <div class="tech-grid reveal">
+                    <div class="tech-item">
+                        <img src="images/azure.svg" alt="Microsoft Azure cloud platform logo" width="64" height="64" loading="lazy">
+                        <span>Microsoft Azure</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/openai.svg" alt="OpenAI artificial intelligence platform logo" width="64" height="64" loading="lazy">
+                        <span>OpenAI</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/netcore.svg" alt=".NET cross-platform development framework logo" width="64" height="64" loading="lazy">
+                        <span>.NET</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/typescript.svg" alt="TypeScript programming language logo" width="64" height="64" loading="lazy">
+                        <span>TypeScript</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/react.svg" alt="React JavaScript UI library logo" width="64" height="64" loading="lazy">
+                        <span>React</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/node.svg" alt="Node.js server-side JavaScript runtime logo" width="64" height="64" loading="lazy">
+                        <span>Node.js</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    </div>
+        <!-- Testimonial -->
+        <section class="testimonial-section" aria-label="Client testimonial">
+            <div class="container">
+                <div class="testimonial-card reveal">
+                    <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+                    <blockquote>
+                        Cosine saved the project. They're great to deal with, very competent and fast.
+                    </blockquote>
+                    <cite>&mdash; Bjorn, Client</cite>
+                </div>
+            </div>
+        </section>
 
-    <div class="footer">
+        <!-- Contact -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-inner reveal">
+                    <h2>Let's Build Something Great</h2>
+                    <p class="subtitle">Based in Ipswich, Suffolk, UK &mdash; working with clients worldwide</p>
+                    <form action="https://formspree.io/f/mknpbgvv" method="POST" aria-label="Contact form">
+                        <label for="email" class="sr-only">Email Address</label>
+                        <input type="email" id="email" name="_replyto" placeholder="Email Address" required>
+                        <label for="message" class="sr-only">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..."></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
         <div class="container">
-            Copyright 2020 ~ Cosine Software ~ Richard Astbury
+            <p>&copy; 2026 Cosine Software &middot; Richard Astbury</p>
         </div>
-    </div>
+    </footer>
 
+    <!-- Screen reader only class -->
+    <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
 
-    <script type="text/javascript">
-        initLogo()
+    <script>
+        // Init logo canvas (wrapped so a missing script doesn't block the rest)
+        try { initLogo(); } catch(e) { console.warn('Logo script not loaded:', e); }
+
+        // Remove no-js class now that JS is confirmed working
+        document.documentElement.classList.remove('no-js');
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+
+        // Scroll reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 80);
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
     </script>
-
 </body>
 
 </html>
